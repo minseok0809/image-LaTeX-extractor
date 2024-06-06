@@ -16,6 +16,7 @@ def one():
    with Image.open(file_path) as img:
       latex_text = model(img)
    img.close()
+   latex_text = '$ ' + latex_text + ' $' 
    clipboard.copy(latex_text)
    e1.delete(0, len(e1.get()))             
    e1.insert(0, latex_text)  
