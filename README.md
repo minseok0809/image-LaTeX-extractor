@@ -2,7 +2,7 @@
 
 <br>
 
-![image-LaTeX-extractor](https://github.com/minseok0809/image-LaTeX-extractor/assets/97289420/31741340-3a7f-4006-bca5-66b5208cfa53)
+![image-LaTeX-extractor](https://github.com/minseok0809/image-LaTeX-extractor/assets/97289420/a7e48756-5404-4bbd-9602-4fca05d77ae8)
 
 <br><br>
 
