@@ -9,7 +9,7 @@ import webbrowser
 def callback(url):
    webbrowser.open_new_tab(url)
 
-def one():
+def extract_latex():
    file_path = fd.askopenfilename()
    file_path = str(file_path)
    model = LatexOCR()
@@ -17,6 +17,13 @@ def one():
       latex_text = model(img)
    img.close()
    latex_text = '$ ' + latex_text + ' $' 
+   clipboard.copy(latex_text)
+   e1.delete(0, len(e1.get()))             
+   e1.insert(0, latex_text)  
+
+def prevent_break_line():
+   latex_text = clipboard.paste()
+   latex_text = '\mbox{' + latex_text + '}' 
    clipboard.copy(latex_text)
    e1.delete(0, len(e1.get()))             
    e1.insert(0, latex_text)  
@@ -39,10 +46,13 @@ e1 = Entry(window)
 e1.pack()
 e1.place(x=20, y=60, width=400, height=50)
 
-b1 = Button(window, text = "Load Image File", command=one)  
+b1 = Button(window, text = "Load Image File", command=extract_latex)  
 b1.pack()
 b1.place(x=20, y=140)
 
+b2 = Button(window, text = "Prevent Break Line", command=prevent_break_line)  
+b2.pack()
+b2.place(x=145, y=140)
 
 l2 = Label(window, text = 'Acknowledgment: lukas-blecher/LaTeX-OCR', fg = 'black', font = 'helvetica 12 bold')
 l2.pack()
